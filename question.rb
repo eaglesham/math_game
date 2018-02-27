@@ -1,15 +1,11 @@
-require './player'
-
 class Question
-    attr_reader :question
+    attr_reader :question, :sum
     
-    def initialize    
-        @question = "What does #{1 + rand(9)} plus #{1 + rand(9)} equal?"
+    def initialize(num1, num2)  
+        @sum = num1 + num2
+        @question = "What does #{num1} plus #{num2} equal?"
     end
-
+    
 
 end
 
-q1 = Question.new
-
-puts q1.question
