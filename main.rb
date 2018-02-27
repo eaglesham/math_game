@@ -11,7 +11,10 @@ class Game
 
     def new_question
         new_question  = Question.new((1 + rand(9)), (1 + rand(9)))
-        return "#{@current_player.name} #{new_question.question}"
+        puts "#{@current_player.name} #{new_question.question}"
+        print ">"
+        @answer = new_question.sum
+        @user_answer = $stdin.gets.chomp
     end
     
     def change_player
@@ -22,8 +25,22 @@ class Game
             current_player = @player1
         end
     end
+
+    def check_answer
+        if (@answer.to_i == @user_answer.to_i)
+            puts "fuck ya"
+        else
+            puts "nahh" 
+        end
+    end
+
+
+    def start
+        self.new_question
+        self.check_answer
+    end 
   
 end
 
-ng = Game.new
-puts ng.new_question
+game = Game.new
+game.start
