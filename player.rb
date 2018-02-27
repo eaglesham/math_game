@@ -1,9 +1,9 @@
 class Player
     attr_reader :name
-    attr_accessor :turn
+    attr_accessor :turn, :lives
     
     def initialize(num)
-        @name = "Player #{num}:"
+        @name = "Player #{num}"
         @lives = 3
         @turn = if num == 1
                     true
